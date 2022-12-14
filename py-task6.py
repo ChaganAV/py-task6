@@ -3,14 +3,22 @@ sum1 = 0
 sum2 = 0
 count = 0
 number = int(sNumber)
-min = 99999
-max = 1000000
-if min < number < max:
-    count = len(sNumber)/2
-    while number > 0:
-        sum+=number//max
-        num = num%max
-        max = max//10
+if number//2 != 0:
+    print("Сожалею, вам выпал не счастливый билетик :(")
 else:
-    print("Вам выпал не счастливый билетик :(")
-print(sum)
+    middle = len(sNumber)//2
+    
+    min = 99999
+    max = 10**len(sNumber)
+    while number > 0:
+        max = max//10
+        if count < middle:
+            sum1+=number//max
+        else:
+            sum2+=number//max
+        number = number%max
+        count+= 1
+    if sum1 == sum2:
+        print("Поздравляю, вам выпал счастливый билетик, возмите с полки пирожок :)")
+    else:
+        print("Сожалею, вам выпал не счастливый билетик :(")
